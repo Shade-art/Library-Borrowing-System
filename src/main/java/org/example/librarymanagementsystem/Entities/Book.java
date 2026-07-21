@@ -5,6 +5,7 @@ import lombok.Data;
 import org.example.librarymanagementsystem.enums.BookStatus;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Data
 @Entity
@@ -27,5 +28,8 @@ public class Book {
 
     @Enumerated(EnumType.STRING)
     private BookStatus status;
+
+    @OneToMany(mappedBy = "book")
+    private List<BorrowRecord> borrowRecords;
 
 }
