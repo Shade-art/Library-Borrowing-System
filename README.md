@@ -72,23 +72,23 @@ The domain logic is organized into clean, decoupled entities representing the co
 
 ### 🔑 Core Entities
 
-1. **[Book](file:///Users/hamza/JAVA/JPA/Library-MANAGEMENT-SYSTEM/src/main/java/org/example/librarymanagementsystem/Entities/Book.java)**: Represents individual books within the library catalog.
-   - Status tracking via `[BookStatus](file:///Users/hamza/JAVA/JPA/Library-MANAGEMENT-SYSTEM/src/main/java/org/example/librarymanagementsystem/enums/BookStatus.java)` (`AVAILABLE`, `BORROWED`).
+1. **[Book](src/main/java/org/example/librarymanagementsystem/Entities/Book.java)**: Represents individual books within the library catalog.
+   - Status tracking via `[BookStatus](src/main/java/org/example/librarymanagementsystem/enums/BookStatus.java)` (`AVAILABLE`, `BORROWED`).
    - One-to-many relationship mapping to borrowing history.
 
-2. **[Member](file:///Users/hamza/JAVA/JPA/Library-MANAGEMENT-SYSTEM/src/main/java/org/example/librarymanagementsystem/Entities/Member.java)**: Library patrons registered to borrow catalog materials.
+2. **[Member](src/main/java/org/example/librarymanagementsystem/Entities/Member.java)**: Library patrons registered to borrow catalog materials.
    - Unique constraints on `membershipNumber` and `email` to maintain identity integrity.
    - Tracks a history of all transaction records.
 
-3. **[BorrowRecord](file:///Users/hamza/JAVA/JPA/Library-MANAGEMENT-SYSTEM/src/main/java/org/example/librarymanagementsystem/Entities/BorrowRecord.java)**: The transactional join entity that links a `[Member](file:///Users/hamza/JAVA/JPA/Library-MANAGEMENT-SYSTEM/src/main/java/org/example/librarymanagementsystem/Entities/Member.java)` and a `[Book](file:///Users/hamza/JAVA/JPA/Library-MANAGEMENT-SYSTEM/src/main/java/org/example/librarymanagementsystem/Entities/Book.java)`.
+3. **[BorrowRecord](src/main/java/org/example/librarymanagementsystem/Entities/BorrowRecord.java)**: The transactional join entity that links a `[Member](src/main/java/org/example/librarymanagementsystem/Entities/Member.java)` and a `[Book](src/main/java/org/example/librarymanagementsystem/Entities/Book.java)`.
    - Tracks `borrowDate`, `dueDate`, and `dateReturned`.
-   - Status tracking via `[BorrowStatus](file:///Users/hamza/JAVA/JPA/Library-MANAGEMENT-SYSTEM/src/main/java/org/example/librarymanagementsystem/enums/BorrowStatus.java)` (`BORROWED`, `RETURNED`, `OVERDUE`).
+   - Status tracking via `[BorrowStatus](src/main/java/org/example/librarymanagementsystem/enums/BorrowStatus.java)` (`BORROWED`, `RETURNED`, `OVERDUE`).
 
 ---
 
 ## 🛠️ Technology Stack & Dependencies
 
-Defined in [pom.xml](file:///Users/hamza/JAVA/JPA/Library-MANAGEMENT-SYSTEM/pom.xml):
+Defined in [pom.xml](pom.xml):
 - **Core Framework**: Spring Boot Starter Web, Spring Security, Validation
 - **Persistence Layer**: Spring Data JPA & Hibernate
 - **Database Driver**: PostgreSQL
@@ -101,7 +101,7 @@ Defined in [pom.xml](file:///Users/hamza/JAVA/JPA/Library-MANAGEMENT-SYSTEM/pom.
 
 ### 1. Database Configuration
 
-The application expects a local PostgreSQL instance running. Ensure you configure it in [application.properties](file:///Users/hamza/JAVA/JPA/Library-MANAGEMENT-SYSTEM/src/main/resources/application.properties):
+The application expects a local PostgreSQL instance running. Ensure you configure it in [application.properties](src/main/resources/application.properties):
 
 ```properties
 spring.datasource.url=jdbc:postgresql://localhost:5432/librarydb
@@ -134,4 +134,4 @@ Build and run using the Maven wrapper:
 ./mvnw spring-boot:run
 ```
 
-The main class is located at [LibraryManagementSystemApplication.java](file:///Users/hamza/JAVA/JPA/Library-MANAGEMENT-SYSTEM/src/main/java/org/example/librarymanagementsystem/LibraryManagementSystemApplication.java).
+The main class is located at [LibraryManagementSystemApplication.java](src/main/java/org/example/librarymanagementsystem/LibraryManagementSystemApplication.java).
