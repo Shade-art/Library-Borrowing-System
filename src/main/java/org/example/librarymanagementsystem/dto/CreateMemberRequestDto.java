@@ -5,7 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Data
-public class CreateUserRequestDto {
+public class CreateMemberRequestDto {
 
         @NotBlank
         private String fullName;
@@ -15,4 +15,6 @@ public class CreateUserRequestDto {
         private String email;
 
         private String phoneNumber;
+
+
 }
